@@ -5,5 +5,34 @@ maxUploadSize = 100
 [browser]
 gatherUsageStats = false
 
-[theme]
-primaryColor = "#E85D3F"
+# ---------------------------------------------------------------------------
+# Dos versiones del diseño: clara (día) y nocturna.
+# La app sigue el modo del sistema operativo; cada persona puede cambiarlo en
+# el menú ⋮ › Settings › Theme (Light / Dark / System).
+# ---------------------------------------------------------------------------
+
+[theme.light]
+primaryColor = "#E85D3F"            # coral
+backgroundColor = "#FAF6F0"         # papel crema
+secondaryBackgroundColor = "#F1EAE0"
+textColor = "#1F2A44"               # azul tinta
+linkColor = "#C8462B"
+borderColor = "#E2D8CA"
+
+[theme.light.sidebar]
+backgroundColor = "#F3ECE2"
+secondaryBackgroundColor = "#FAF6F0"
+textColor = "#1F2A44"
+
+[theme.dark]
+primaryColor = "#FF7A59"            # coral más luminoso para fondo oscuro
+backgroundColor = "#14161F"         # azul noche
+secondaryBackgroundColor = "#1E2230"
+textColor = "#ECE8E1"               # crema suave (menos fatiga que el blanco puro)
+linkColor = "#FF9C80"
+borderColor = "#2C3142"
+
+[theme.dark.sidebar]
+backgroundColor = "#181B26"
+secondaryBackgroundColor = "#232838"
+textColor = "#ECE8E1"

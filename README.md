@@ -42,7 +42,7 @@ El proyecto ya incluye todo lo necesario:
 |---|---|
 | `requirements.txt` | Librerías de Python (con OpenCV *headless*, la versión para servidores) |
 | `packages.txt` | Paquetes del sistema Linux: fuentes Liberation (equivalentes métricos de Arial, Times New Roman y Courier New) y DejaVu |
-| `.streamlit/config.toml` | Límite de subida (100 MB por archivo) y color principal |
+| `.streamlit/config.toml` | Límite de subida (100 MB por archivo) y dos temas: **claro** (crema y coral) y **nocturno** (azul noche y coral). La app sigue el modo del sistema y se puede cambiar en ⋮ › Settings › Theme |
 | `.gitignore` | Excluye cachés de Python, entornos virtuales y `secrets.toml` |
 
 **Pasos:**

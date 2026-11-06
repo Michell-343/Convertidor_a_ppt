@@ -114,6 +114,7 @@ with st.sidebar:
 st.title("🎨 Diseño → PowerPoint editable")
 st.write("Sube tus diseños (**SVG** para máxima fidelidad, o PNG/JPG). "
          "Cada archivo será una diapositiva con textos, formas y colores editables.")
+st.caption("🌙 Modo nocturno: menú ⋮ › Settings › Theme (o sigue el modo de tu sistema).")
 
 with st.expander("💡 Cómo exportar el SVG para obtener el mejor resultado"):
     st.markdown("""
@@ -149,7 +150,8 @@ if archivos:
             if es_svg(nombre, datos):
                 b64 = base64.b64encode(datos).decode()
                 st.markdown(f'<img src="data:image/svg+xml;base64,{b64}" '
-                            f'style="width:100%;border:1px solid #ddd;border-radius:6px">',
+                            # borde semitransparente: se ve bien en modo claro y nocturno
+                            f'style="width:100%;border:1px solid rgba(128,128,128,.35);border-radius:6px">',
                             unsafe_allow_html=True)
             else:
                 st.image(datos, width="stretch")

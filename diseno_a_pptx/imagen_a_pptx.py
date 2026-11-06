@@ -13,7 +13,9 @@ Una imagen no contiene información de capas, así que el proceso la "reconstruy
 from __future__ import annotations
 
 import io
+import tempfile
 from dataclasses import dataclass, field
+from pathlib import Path
 
 import cv2
 import numpy as np
@@ -114,6 +116,23 @@ def _unir_fragmentos(lineas: list[LineaTexto], cat) -> list[LineaTexto]:
 _MOTOR_RAPID = None
 
 
+def _carpeta_modelos() -> str:
+    """Carpeta ESCRIBIBLE para los modelos del OCR. En servidores como Streamlit Cloud
+    la carpeta de librerías (site-packages) es de solo lectura, así que RapidOCR no puede
+    descargar ahí los modelos: se usan ~/.cache o, si no se puede, la carpeta temporal."""
+    for base in (Path.home() / ".cache", Path(tempfile.gettempdir())):
+        carpeta = base / "diseno_a_pptx" / "modelos_ocr"
+        try:
+            carpeta.mkdir(parents=True, exist_ok=True)
+            prueba = carpeta / ".escritura"
+            prueba.write_bytes(b"ok")
+            prueba.unlink()
+            return str(carpeta)
+        except OSError:
+            continue
+    raise OSError("No hay ninguna carpeta con permiso de escritura para los modelos del OCR.")
+
+
 def _ocr_rapid(rgb: np.ndarray, inf: Informe):
     """Devuelve [(texto, cuadrilátero 4x2, confianza)]."""
     global _MOTOR_RAPID
@@ -125,6 +144,7 @@ def _ocr_rapid(rgb: np.ndarray, inf: Informe):
             _MOTOR_RAPID = RapidOCR(params={"Rec.lang_type": LangRec.LATIN,
                                             "Rec.ocr_version": OCRVersion.PPOCRV5,
                                             "Rec.model_type": ModelType.MOBILE,
+                                            "Global.model_root_dir": _carpeta_modelos(),
                                             "Global.log_level": "error"})
         r = _MOTOR_RAPID(bgr)
         if r.boxes is None:

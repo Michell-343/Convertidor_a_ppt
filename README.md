@@ -58,8 +58,9 @@ El proyecto ya incluye todo lo necesario:
   (*Tus tipografías*), sueltas o en un `.zip`, para que los textos queden en su posición exacta.
   Se usan solo durante la sesión y no se guardan. Si no las subes, el PowerPoint se genera igual
   con el nombre correcto de la fuente, pero la posición de los textos es aproximada.
-- **OCR:** la primera conversión de una imagen descarga el modelo de reconocimiento (~10 MB) y
-  tarda un poco más. Las siguientes son rápidas.
+- **OCR:** la primera conversión de una imagen descarga los modelos de reconocimiento (~18 MB) y
+  tarda un poco más. Las siguientes son rápidas. Los modelos se guardan en `~/.cache/diseno_a_pptx/`
+  (o en la carpeta temporal), porque en Streamlit Cloud la carpeta de librerías es de solo lectura.
 - **SVG con imágenes enlazadas:** en la nube solo funcionan las imágenes **incrustadas** en el SVG.
 - La app gratuita se «duerme» tras unos días sin uso; al abrirla de nuevo se despierta sola.
 

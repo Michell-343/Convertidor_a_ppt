@@ -11,6 +11,7 @@ import zipfile
 from pathlib import Path
 
 import streamlit as st
+from PIL import Image, ImageOps
 
 from diseno_a_pptx import CatalogoFuentes, OpcionesImagen, convertir_archivos, es_svg
 
@@ -58,6 +59,27 @@ def guardar_fuentes(subidas) -> tuple[str, str | None, int]:
             (carpeta / Path(f.name).name).write_bytes(datos)
             n += 1
     return clave, str(carpeta), n
+
+
+@st.cache_data(show_spinner=False, max_entries=200)
+def miniatura_html(nombre: str, datos: bytes) -> str:
+    """Vista previa pequeña. Las imágenes se reducen a 400 px antes de enviarlas al navegador."""
+    estilo = ("display:block;width:100%;max-height:200px;object-fit:contain;"
+              # fondo y borde semitransparentes: se ven bien en modo claro y nocturno
+              "background:rgba(128,128,128,.08);border:1px solid rgba(128,128,128,.35);"
+              "border-radius:6px;padding:4px;box-sizing:border-box")
+    if es_svg(nombre, datos):
+        return f'<img src="data:image/svg+xml;base64,{base64.b64encode(datos).decode()}" style="{estilo}">'
+    try:
+        img = ImageOps.exif_transpose(Image.open(io.BytesIO(datos)))
+        img.thumbnail((400, 400))
+        if img.mode not in ("RGB", "RGBA"):
+            img = img.convert("RGBA")
+        buf = io.BytesIO()
+        img.save(buf, "PNG")
+        return f'<img src="data:image/png;base64,{base64.b64encode(buf.getvalue()).decode()}" style="{estilo}">'
+    except Exception:
+        return '<div style="padding:24px;text-align:center;opacity:.6">Sin vista previa</div>'
 
 
 # ------------------------------------------------------------------ barra lateral
@@ -144,17 +166,11 @@ if archivos:
     if ordenar:
         lista.sort(key=lambda x: x[0].lower())
 
-    cols = st.columns(min(4, len(lista)))
+    # miniaturas de tamaño fijo (4 por fila, máx. 200 px de alto) aunque haya un solo archivo
+    cols = st.columns(4)
     for i, (nombre, datos) in enumerate(lista):
-        with cols[i % len(cols)]:
-            if es_svg(nombre, datos):
-                b64 = base64.b64encode(datos).decode()
-                st.markdown(f'<img src="data:image/svg+xml;base64,{b64}" '
-                            # borde semitransparente: se ve bien en modo claro y nocturno
-                            f'style="width:100%;border:1px solid rgba(128,128,128,.35);border-radius:6px">',
-                            unsafe_allow_html=True)
-            else:
-                st.image(datos, width="stretch")
+        with cols[i % 4]:
+            st.markdown(miniatura_html(nombre, datos), unsafe_allow_html=True)
             st.caption(f"{i + 1}. {nombre}")
 
     if st.button("Convertir a PowerPoint", type="primary", width="stretch"):

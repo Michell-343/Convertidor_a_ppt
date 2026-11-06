@@ -1,0 +1,17 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0_1_2)">
+<rect width="1080" height="1080" fill="#F4EFE6"/>
+<circle cx="880" cy="200" r="260" fill="#E85D3F"/>
+<rect x="80" y="620" width="520" height="340" rx="32" fill="#1F3D36"/>
+<path d="M640 980L1000 620V980H640Z" fill="#F2B84B"/>
+<text fill="#1F3D36" xml:space="preserve" style="white-space: pre" font-family="Segoe UI" font-size="88" font-weight="600" letter-spacing="-0.02em"><tspan x="80" y="250.5">Nueva</tspan><tspan x="80" y="350.5">colecci&#xf3;n</tspan></text>
+<text fill="white" xml:space="preserve" style="white-space: pre" font-family="D-DIN" font-size="36" letter-spacing="0.1em"><tspan x="120" y="712.6">OTO&#xd1;O / INVIERNO</tspan></text>
+<text fill="#F4EFE6" fill-opacity="0.8" xml:space="preserve" style="white-space: pre" font-family="Georgia" font-style="italic" font-size="30"><tspan x="120" y="790.5">Piezas hechas a mano con </tspan><tspan x="120" y="832.5">materiales naturales.</tspan></text>
+<use xlink:href="#estrella" x="900" y="760"/>
+<use xlink:href="#estrella" x="980" y="860" opacity="0.5"/>
+</g>
+<defs>
+<path id="estrella" d="M0 -30L8.8 -9.3L31 -7.6L14 7L19.1 28.8L0 17.1L-19.1 28.8L-14 7L-31 -7.6L-8.8 -9.3Z" fill="#1F3D36"/>
+<clipPath id="clip0_1_2"><rect width="1080" height="1080" fill="white"/></clipPath>
+</defs>
+</svg>

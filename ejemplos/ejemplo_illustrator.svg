@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1{fill:#1d1d3b;}
+      .cls-2{fill:url(#degradado);}
+      .cls-3{fill:#ff5a5f;}
+      .cls-4{font-family:Gotham-Bold, Gotham;font-size:96px;font-weight:700;fill:#fff;}
+      .cls-5{font-family:Georgia;font-size:34px;fill:#f2f2f2;letter-spacing:.02em;}
+      .cls-6{fill:none;stroke:#ffd23f;stroke-width:8px;stroke-linecap:round;stroke-dasharray:24 18;}
+      .cls-7{opacity:.6;}
+      .cls-8{font-family:Carnero-SemiBold, Carnero;font-size:40px;font-weight:600;fill:#ffd23f;}
+      .cls-9{fill:url(#radial);}
+    </style>
+    <linearGradient id="degradado" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6a11cb"/>
+      <stop offset="1" stop-color="#2575fc"/>
+    </linearGradient>
+    <radialGradient id="radial" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ff5a5f"/>
+    </radialGradient>
+    <clipPath id="recorte"><rect x="1180" y="560" width="520" height="340" rx="0"/></clipPath>
+  </defs>
+  <rect class="cls-1" width="1920" height="1080"/>
+  <g id="Decoracion" data-name="Decoración">
+    <rect class="cls-2" x="1100" y="-120" width="900" height="600" rx="60" transform="rotate(-12 1550 180)"/>
+    <circle class="cls-3 cls-7" cx="160" cy="940" r="220"/>
+    <ellipse class="cls-9" cx="900" cy="960" rx="140" ry="80"/>
+    <path class="cls-3" d="M1700,980 a60,60 0 1,1 120,0 l-60,80 z"/>
+    <path class="cls-6" d="M140,720 C420,600 700,840 980,700 S1500,620 1700,760"/>
+    <polygon points="1050,600 1110,700 990,700" fill="#ffd23f"/>
+    <path fill="#ffffff" fill-rule="evenodd" d="M500,860 h200 v120 h-200 z M540,890 h120 v60 h-120 z"/>
+  </g>
+  <text class="cls-4" transform="translate(140 260)"><tspan x="0" y="0">Diseño que</tspan><tspan x="0" y="110">se edita</tspan></text>
+  <text class="cls-5" transform="translate(140 440)"><tspan x="0" y="0">Convierte tus diseños SVG en diapositivas</tspan><tspan x="0" y="48">editables, con tipografías y colores reales.</tspan></text>
+  <text class="cls-8" x="960" y="560" text-anchor="middle">Centrado · Carnero SemiBold</text>
+  <text font-family="Avenir Next" font-size="28" fill="#ffffff" transform="translate(1500 1040) rotate(-8)" text-anchor="end">Texto rotado alineado a la derecha</text>
+  <g clip-path="url(#recorte)">
+    <image width="400" height="300" transform="translate(1160 540) scale(1.4)" xlink:href="data:image/png;base64,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"/>
+  </g>
+</svg>

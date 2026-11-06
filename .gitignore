@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Streamlit (las credenciales nunca van al repositorio)
+.streamlit/secrets.toml
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Archivos temporales de Office
+~$*
+
+# Documentos personales de entrega (no forman parte de la app)
+Documentos para entrega/
+
+# Ejemplo hecho con fondos de pantalla de Windows (derechos de autor de Microsoft)
+ejemplos/ejemplo_con_fotos.jpg
+ejemplos/resultado_con_fotos.pptx
